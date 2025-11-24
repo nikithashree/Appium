@@ -18,7 +18,6 @@ public class LoginPage {
 	private By hideButton = By.xpath("//android.widget.TextView[@text='Hide']");
 	private By continueButton = By.xpath("//android.view.ViewGroup[@content-desc='Continue']");
 	private By errorMessage = By.xpath("//android.widget.TextView[@text='Password is required']");
-	// private By alert= By.id("com.dpdzero.pathfinder.uat:id/alert_title");
 	private By otptext = By.xpath("//android.widget.TextView[contains(@text,'Verify OTP')]");
 	private By alertOkButton = By.id("android:id/button1");
 
@@ -61,13 +60,11 @@ public class LoginPage {
 	}
 
 	public void Enterusername(String username) {
-		WebElement usernameElement = helper.createElement(usernameField);
-		usernameElement.sendKeys(username);
+		helper.sendkeys(usernameField, username);
 	}
 
 	public void EnterPassword(String password) {
-		WebElement passwordElement = helper.createElement(passwordField);
-		passwordElement.sendKeys(password);
+		helper.sendkeys(passwordField, password);
 	}
 
 	public void clickshowbutton() {

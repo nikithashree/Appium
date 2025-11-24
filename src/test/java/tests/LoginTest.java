@@ -10,7 +10,7 @@ import pages.LoginPage;
 
 public class LoginTest extends BaseTest {
 	private LoginPage loginPage;
-	
+
 	@BeforeClass
 	public void setup() {
 		loginPage = new LoginPage(helper);
@@ -36,25 +36,30 @@ public class LoginTest extends BaseTest {
 		loginPage.EnterPassword(password);
 		loginPage.clickshowbutton();
 
+		String actualpassword = loginPage.getPasswordText();
+		Assert.assertEquals(actualpassword, password, "Password mismatch after clicking Show button");
+
+		loginPage.clickhidebutton();
+		String maskedtext = loginPage.getPasswordText();
+		Assert.assertNotEquals(maskedtext, password, "Password mismatch after clicking Show button");
+
 		System.out.println("Password is hidden");
 
 		loginPage.clickcontinuebutton();
-
-	//	Assert.assertTrue(loginPage.isotptextvisible(), "otp message is not displayed");
 
 	}
 
 	@Test(priority = 3)
 	public void NegativeTest() {
-		loginPage.Enterusername("Sharath");
+		loginPage.Enterusername(username);
 		loginPage.clickcontinuebutton();
 
 		String actualerrormessage = loginPage.geterrormessage();
 		Assert.assertTrue(actualerrormessage.equalsIgnoreCase("Password is required"));
-	
+
 		System.out.println("Verified error message displayed");
 
-		loginPage.Enterusername("username");
+		loginPage.Enterusername(username);
 		loginPage.EnterPassword("whweif");
 		loginPage.clickcontinuebutton();
 
