@@ -9,7 +9,7 @@ public class ProfilePage {
 
     // LOCATORS 
     private By profileTab = By.xpath("//android.widget.TextView[@text='Profile']");
-    private By profileIcon = By.xpath("//android.widget.ImageView"); // visibility check
+    private By profileIcon = By.xpath("//android.widget.ImageView"); 
     private By agentName = By.xpath("//android.widget.TextView[@resource-id='com.outsystemsenterprise.dpdzero_app:id/tv_agent_name']");
     private By dpdZeroText = By.xpath("//android.widget.TextView[@resource-id='com.outsystemsenterprise.dpdzero_app:id/tv_dpdzero']");
     private By phoneNumber = By.xpath("//android.widget.TextView[contains(@text,'Phone Number')]/following-sibling::android.widget.TextView");
@@ -54,6 +54,10 @@ public class ProfilePage {
 
     public String getGender() {
         return helper.extractText(helper.waitForElement(gender));
+    }
+    
+    public boolean isLogoutButtonVisible() {
+        return helper.isElementvisible(logoutButton);
     }
 
     public void clickLogoutButton() {
