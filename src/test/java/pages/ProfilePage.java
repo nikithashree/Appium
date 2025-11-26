@@ -9,13 +9,13 @@ public class ProfilePage {
 
     // LOCATORS 
     private By profileTab = By.xpath("//android.widget.TextView[@text='Profile']");
+    private By profileIcon = By.xpath("//android.widget.ImageView"); // visibility check
     private By agentName = By.xpath("//android.widget.TextView[@resource-id='com.outsystemsenterprise.dpdzero_app:id/tv_agent_name']");
     private By dpdZeroText = By.xpath("//android.widget.TextView[@resource-id='com.outsystemsenterprise.dpdzero_app:id/tv_dpdzero']");
     private By phoneNumber = By.xpath("//android.widget.TextView[contains(@text,'Phone Number')]/following-sibling::android.widget.TextView");
     private By username = By.xpath("//android.widget.TextView[contains(@text,'Username')]/following-sibling::android.widget.TextView");
     private By email = By.xpath("//android.widget.TextView[contains(@text,'Email')]/following-sibling::android.widget.TextView");
     private By gender = By.xpath("//android.widget.TextView[contains(@text,'Gender')]/following-sibling::android.widget.TextView");
-
     private By logoutButton = By.xpath("//android.widget.TextView[@text='Logout']");
 
     // CONSTRUCTOR 
@@ -26,6 +26,10 @@ public class ProfilePage {
     // ACTION METHODS 
     public void clickProfileTab() {
         helper.clickElement(profileTab);
+    }
+
+    public boolean isProfileIconVisible() {
+        return helper.isElementvisible(profileIcon); 
     }
 
     public String getAgentName() {
@@ -52,7 +56,7 @@ public class ProfilePage {
         return helper.extractText(helper.waitForElement(gender));
     }
 
-    public void clickLogout() {
+    public void clickLogoutButton() {
         helper.clickElement(logoutButton);
     }
 }
