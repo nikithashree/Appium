@@ -1,6 +1,7 @@
 package base;
 
 import helper.ConfigReader;
+import java.net.URI;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -54,7 +55,9 @@ public class BaseTest {
 		options.setCapability("name", TEST_NAME);
 
 		String browserstackURL = String.format("https://%s:%s@hub-cloud.browserstack.com/wd/hub", USERNAME, ACCESS_KEY);
-		driver = new AndroidDriver(new URL(browserstackURL), options);
+		URL url = URI.create(browserstackURL).toURL();
+
+		driver = new AndroidDriver(url, options);
 		helper = new Helper(driver);
 
 		System.out.println("App launched successfully on BrowserStack");
@@ -65,8 +68,8 @@ public class BaseTest {
 	public void resetAppBeforeTest() {
 		if (driver != null) {
 			System.out.println("Resetting app to initial state");
-			driver.resetApp();
 
+			driver.resetApp();
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {

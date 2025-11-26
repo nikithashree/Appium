@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
+<<<<<<< HEAD
 	<name>appium</name>
+=======
+	<name>AppiumTest</name>
+>>>>>>> 8b94bc449b323b9dbce01048986c31be994cf2f5
 	<comment></comment>
 	<projects>
 	</projects>
