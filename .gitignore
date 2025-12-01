@@ -1,1 +1,45 @@
-/target/
+############ Maven target ############
+target/
+maven-status/
+.mvn/
+
+############ IDE files ############
+.project
+.classpath
+.settings/
+.idea/
+*.iml
+.vscode/
+
+############ Logs ############
+log/
+logs/
+*.log
+
+############ TestNG ############
+test-output/
+surefire-reports/
+failsafe-reports/
+
+############ Java build artifacts ############
+*.class
+*.jar
+*.war
+
+############ System files ############
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo
+
+############ Appium / Mobile ############
+*.apk
+*.ipa
+
+############ Environment secrets ############
+.env
+.env.*
+*.properties
+!src/test/resources/config.properties
+
